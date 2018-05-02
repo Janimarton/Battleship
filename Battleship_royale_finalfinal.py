@@ -5,10 +5,13 @@ import getpass
 
 player1board, player2board = [], []
 
-player_1 = input("What is your name Player 1?")
+def name_input_func():
+    player_1 = input("What is your name Player 1?")
+
+def 
 player_2 = input("What is your name Player 2?")
 
-# Placemnet:
+# BoardPlacemnet:
 for x in range(1, 6):
     player1board.append(["\033[1;34mO\033[0;0m"] * 5)
     player2board.append(["\033[1;36mO\033[0;0m"] * 5)
@@ -27,9 +30,16 @@ def print_board(player2board):
     for row in player2board:
         print(" ".join(row))
 
+def input_func(y,player_1):
+    x = int(input(str(player_1) + "Give me your "+ y +" position!" ))
+    if ((x > 5) or x < 1):
+        raise ValueError
+    return(x)
+
+
 
 # Player 1 ship placement
-def ship_placement(*args)
+def ship_placement(ship_row_player1, ship_col_player1)
     while True:
         try:
             (ship_row_player1=int(getpass.getpass(str(player_1) + ", give me your ship's X position!")))
@@ -42,8 +52,8 @@ def ship_placement(*args)
                 break
         except ValueError:
             print("Enter a number between 1 and 5!")
-            continue
-            return (ship_row_player1, ship_col_player1)
+        return (ship_row_player1, ship_col_player1)
+            
 
 
 # Player 2 ship placement row input
