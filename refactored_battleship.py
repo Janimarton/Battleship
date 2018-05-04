@@ -41,7 +41,7 @@ def guessing_func(playervariable, coordinate):
         try:
             guessedvariable = int(input((playervariable) + ", guess the enemy ship " + coordinate + " position!"))
             guessedvariable = guessedvariable - 0
-            if ((guessedvariable > 5) or guessedvariable < 1):
+            if ((guessedvariable > 100) or guessedvariable < 1):
                 raise ValueError
             else:
                 return(guessedvariable)
@@ -61,7 +61,7 @@ def tipping(guessed1_col, player2_col, guessed1_row, player2_row, player2board):
     player2_row = player2_row - 0
     if guessed1_col == (player2_col - 0) and guessed1_row == (player2_row - 0):
         print("\n")
-        print("\033[1;32mCongratulations! You sank the enemy battleship!\033[0;0m")
+        print("\033[1;32mVictory Royale! You sank the enemy battleship!\033[0;0m")
         print("\n")
         sys.exit()
     else:
