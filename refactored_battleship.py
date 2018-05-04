@@ -1,4 +1,5 @@
 import getpass
+import sys
 
 player1 = input("What is your name Player 1?")
 player2 = input("What is your name Player 2?")
@@ -17,7 +18,7 @@ def print_board(board):
 def input_func(player, coordinate):
     while True:
         try:
-            x = int(input(str(player) + " give me your ships" + coordinate + " position!"))
+            x = int(getpass.getpass(str(player) + " give me your ships" + coordinate + " position!"))
             if ((x > 5) or x < 1):
                 raise ValueError
             else:
@@ -57,16 +58,17 @@ def tipping(guessed1_col, player2_col, guessed1_row, player2_row, player2board):
     player2_row = player2_row - 0
     if guessed1_col == (player2_col - 0) and guessed1_row == (player2_row - 0):
         print("Congratulations! You sank the enemy battleship!")
+        sys.exit()
     else:
         if guessed1_col not in range(0, 6) or \
                 guessed1_row not in range(0, 6):
             print("Oops, that's not even in the ocean.")
-        elif player2board[(guessed1_row - 1)][(guessed1_col - 1)] == "X":
+        elif player2board[(guessed1_row - 1)][(guessed1_col - 1)] == "\033[1;31mX\033[0;0m":
             print("You guessed that one already. Chose a different coordinate!")
         else:
             # guess_col_1 != ship_col_player2 or guess_row_1 != ship_row_player2
             print("You missed!")
-            player2board[(guessed1_row - 1)][(guessed1_col - 1)] = "X"
+            player2board[(guessed1_row - 1)][(guessed1_col - 1)] = "\033[1;31mX\033[0;0m"
             print_board(player2board)
         if (turn == 13):
             print("Game Over!")
