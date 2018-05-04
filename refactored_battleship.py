@@ -60,7 +60,9 @@ def tipping(guessed1_col, player2_col, guessed1_row, player2_row, player2board):
     player2_col = player2_col - 0
     player2_row = player2_row - 0
     if guessed1_col == (player2_col - 0) and guessed1_row == (player2_row - 0):
-        print("Congratulations! You sank the enemy battleship!")
+        print("\n")
+        print("\033[1;32mCongratulations! You sank the enemy battleship!\033[0;0m")
+        print("\n")
         sys.exit()
     else:
         if guessed1_col not in range(0, 6) or \
