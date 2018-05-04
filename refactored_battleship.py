@@ -50,6 +50,7 @@ def guessing_func(playervariable, coordinate):
             print("Enter a number between 1 and 5!")
 
 
+print("The boards will look like this :")
 print_board(player1board)
 print("\n")
 print_board(player2board)
