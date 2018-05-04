@@ -1,6 +1,8 @@
 import getpass
 import sys
-
+print("\n")
+welcome = "\033[1;32mWelcome to Battleship Royale! This is a two player game, you will play on a 5x5 board\033[0;0m"
+print(welcome)
 player1 = input("What is your name Player 1?")
 player2 = input("What is your name Player 2?")
 
